@@ -11,16 +11,22 @@ def hand_value(cards):
         total -= 10
         aces -= 1
     return total
-
-
+"""
+    Parses state text formatted as: "Card1, Card2 | DealerUpcard | Flag"
+    Returns a dictionary state representation.
+    """
 def parse_state(text):
-    hand_str, dealer_upcard, flag = [part.strip() for part in text.split("|")]
-    hand = [rank.strip() for rank in hand_str.split(",")]
+    hand_str, dealer_upcard, flag = [part.strip() for part in text.split("|")] #strip and split functions clean data given that is seperated by "|"
+    hand = [rank.strip() for rank in hand_str.split(",")] #clean data for hand_str return list seperated by ","                     
 
-    return ...
+    return {
+        "hand": tuple(hand),
+        "dealer_upcard": dealer_upcard,
+        "flag": flag,  # e.g., 'IN_PROGRESS', 'STAND', 'BUST', 'BLACKJACK'
+    }
 
 
-def generate_actions(state):
+def generate_actions(state):#here you use the dictionary you got from parse_state as your input 
     raise NotImplementedError("This function is not implemented yet.")
 
 
