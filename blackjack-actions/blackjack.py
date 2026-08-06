@@ -26,19 +26,7 @@ def parse_state(text):
 
 
 def generate_actions(state):#here you use the dictionary you got from parse_state as your input 
-    actions = ["hit", "stand"]
-    # allow hit and stand
-    if state["flag"] == "first":
-        actions.append("double")
-        actions.append("surrender")
-
-        if state["hand"][0] != state["hand"][1]:
-            actions.remove("split")
-        else: # add split if the two cards are the same
-            actions.append("split")
-        # Insurance is only allowed when ace is shown
-        if state["dealer_upcard"] == "A":
-            actions.append("insurance")
+   
 
     return actions
 
