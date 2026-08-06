@@ -34,6 +34,8 @@ def legal_actions(state):#here you use the dictionary you got from parse_state a
 
         if state["hand"][0] != state["hand"][1]:
             actions.remove("split")
+        else: # add split if the two cards are the same
+            actions.append("split")
 
         if state["dealer_upcard"] == "A":
             actions.append("double")
