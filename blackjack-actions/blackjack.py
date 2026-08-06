@@ -30,13 +30,14 @@ def legal_actions(state):#here you use the dictionary you got from parse_state a
 
     if state["flag"] == "first":
         actions.append("double")
-        actions.append("split")
+        actions.append("surrender")
 
         if state["hand"][0] != state["hand"][1]:
             actions.remove("split")
 
-        if state["hand"][0] == "A" and state["hand"][1] == "A":
-            actions.remove("double")
+        if state["dealer_upcard"] == "A":
+            actions.append("double")
+
     return actions
 
 
