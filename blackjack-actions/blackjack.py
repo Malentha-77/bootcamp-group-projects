@@ -34,6 +34,9 @@ def legal_actions(state):#here you use the dictionary you got from parse_state a
 
         if state["hand"][0] != state["hand"][1]:
             actions.remove("split")
+
+        if state["hand"][0] == "A" and state["hand"][1] == "A":
+            actions.remove("double")
     return actions
 
 
