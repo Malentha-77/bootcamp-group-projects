@@ -1,7 +1,22 @@
+#create desk setup
+designs = ["Hearts", "Diamonds", "Clubs", "Spades"]
+values = [str(i) : for i in range(2, 11)]
+
 RANK_VALUES = {
     "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10,
     "J": 10, "Q": 10, "K": 10, "A": 11, }
 
+#deck class
+class Deck :
+    def _init_({self}):
+        self.cards = []
+        for RANK_VALUE in RANK_VALUES :
+         for design in designs :
+        self.cards.append((RANK_VALUES, designs))  #do this to insert identity to the cards e.g Queen of Hearts
+
+        #shuffle cards for chance
+         random.shuffle(self.cards)
+        
 
 def hand_value(cards):
     total = sum(RANK_VALUES[card] for card in cards)
@@ -23,6 +38,16 @@ def parse_state(text):
         "dealer_upcard": dealer_upcard,
         "flag": flag,  # e.g., 'IN_PROGRESS', 'STAND', 'BUST', 'BLACKJACK'
     }
+
+
+parse_state{} :
+    Card1= int(input("hand"))
+    for card in cards() :
+        "hand" = input(tuple(hand))
+        "dealer" = input(dealer_upcard)
+        "flag" = input(flag)
+
+print(parse_state)
 
 
 def generate_actions(state):#here you use the dictionary you got from parse_state as your input 
