@@ -25,8 +25,16 @@ def parse_state(text):
     }
 
 
-def generate_actions(state):#here you use the dictionary you got from parse_state as your input 
-    raise NotImplementedError("This function is not implemented yet.")
+def legal_actions(state):#here you use the dictionary you got from parse_state as your input 
+    actions = ["hit", "stand"]
+
+    if state["flag"] == "first":
+        actions.append("double")
+        actions.append("split")
+
+        if state["hand"][0] != state["hand"][1]:
+            actions.remove("split")
+    return actions
 
 
 def apply_action(state, action, next_card=None):
