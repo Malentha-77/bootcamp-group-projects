@@ -67,14 +67,15 @@ elif state["flag"]=="IN_PROGRESS":
 
 
 def apply_action(state, action, next_card=None):
-def draw_card(list):
-    vv=list()
-    values=list(list.keys())
+def draw_card(litt):
+    values=list(litt.keys())
     return random.choice(values))
-def initial():
-    
+def initialise(cards): # we want this "Card1, Card2 | DealerUpcard | Flag"
+    return draw_card(cards),draw_cards,"|",draw_card(),"|","IN_PROGRESS"
     
 print("hi how are you welcome to our game hope you have a good time playing it")
-
+give=input("DO YOU WANT TO START YES OR NO")
+if give=="YESS":
+    
 
 
