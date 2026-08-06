@@ -1,3 +1,4 @@
+import random 
 #create desk setup
 designs = ["Hearts", "Diamonds", "Clubs", "Spades"]
 values = [str(i) : for i in range(2, 11)]
@@ -66,4 +67,14 @@ elif state["flag"]=="IN_PROGRESS":
 
 
 def apply_action(state, action, next_card=None):
-    raise NotImplementedError("This function is not implemented yet.")
+def draw_card(list):
+    vv=list()
+    values=list(list.keys())
+    return random.choice(values))
+def initial():
+    
+    
+print("hi how are you welcome to our game hope you have a good time playing it")
+
+
+
