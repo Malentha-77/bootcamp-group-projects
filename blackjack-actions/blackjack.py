@@ -46,16 +46,16 @@ def parse_state(text):
 
 def generate_actions(state):#here you use the dictionary you got from parse_state as your input 
     playerhand=state.get("hand","no hand")
-player_total=total(playerhand)
-p_flag=state.get("flag","not flag")
-if player_total>21:
-   state["flag"]="bust"
-elif player_total==21 or player<21:
-     state["flag"]="IN_PROGRESS"
-if   playerhand["flag"]=="bust":
-     return "loss"
-elif state["flag"]=="IN_PROGRESS": 
-     return "take another ?"
+    player_total=total(playerhand)
+    p_flag=state.get("flag","not flag")
+    if player_total>21:
+       state["flag"]="bust"
+    elif player_total==21 or player<21:
+         state["flag"]="IN_PROGRESS"
+    if   playerhand["flag"]=="bust":
+         return "loss"
+    elif state["flag"]=="IN_PROGRESS": 
+         return "take another ?"
    
 #let's create our card deck
 card_deck = {'2':2,'K':10,'A':11,'3':3,'5':5}
