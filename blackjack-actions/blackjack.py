@@ -13,10 +13,10 @@ class Deck :
         self.cards = []
         for RANK_VALUE in RANK_VALUES :
          for design in designs :
-        self.cards.append((RANK_VALUES, designs))  #do this to insert identity to the cards e.g Queen of Hearts
+             self.cards.append((RANK_VALUES, designs))  #do this to insert identity to the cards e.g Queen of Hearts
 
         #shuffle cards for chance
-         random.shuffle(self.cards)
+    random.shuffle(self.cards)
         
 
 def hand_value(cards):
@@ -66,21 +66,21 @@ def player_hand():
    stat = card_deck
 
 if player_total ==21 :    #I'm not to sure how to execute this properly
-      return stat["card_deck"]="win"
-
-   elif player_total ==21 or player_total <= 21:
-      return stat["card_deck"]= ""
+    return stat["card_deck"] = "win"
+    
+elif player_total ==21 or player_total <= 21:
+    return stat["card_deck"] = ""
    
-   if   player_total[""]=="bust":
-        return "loss"
+if player_total[""]=="bust":
+    return "loss"
    
-   elif stat["card_deck"]=="IN_PROGRESS": 
-        return "take another ?"
+elif stat["card_deck"]=="IN_PROGRESS": 
+    return "take another ?"
 
 def apply_action(state, action, next_card=None):
-def draw_card(litt):
-    values=list(litt.keys())
-    return random.choice(values))
+    def draw_card(litt):
+        values=list(litt.keys())
+    return random.choice(values)
 def initialise(cards):# we want this "Card1, Card2 | DealerUpcard | Flag"
     print("These are your cards",draw_card(cards),draw_card(cards),"This is dealer card",draw_card(cards))
     return draw_card(cards),draw_card(cards),"|",draw_card(cards),"|","IN_PROGRESS"
