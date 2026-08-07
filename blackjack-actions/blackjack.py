@@ -76,7 +76,7 @@ def apply_action(state, action, next_card=None):
 
 def draw_card(litt): # we want this "Card1, Card2 | DealerUpcard | Flag"
     values=list(litt.keys())
-    return draw_card(cards),draw_card(cards),"|",draw_card(cards),"|","IN_PROGRESS"
+    return 
     
 print("hi how are you welcome to our game hope you have a good time playing it")
 give=input("DO YOU WANT TO START YES OR NO")
