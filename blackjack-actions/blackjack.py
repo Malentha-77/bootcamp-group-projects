@@ -88,9 +88,21 @@ def draw_card(litt):
 def initialise(cards):# we want this "Card1, Card2 | DealerUpcard | Flag"
     return draw_card(cards),draw_card(cards),"|",draw_card(cards),"|","IN_PROGRESS"
 
+    """"this is the game play""""
+    print("hi and welcom to our game ")
+    game=input("do you want to play")
+    play=True
+    if game=="yes":
+        while play:
+              player=intialise(RANK_VALUES)
+              hand=parse_state(player)
+              print("these are the delt cards",player)
+              action=generate_actions(hand)
+              if action=="bust":
+                  play=False
+              elif action=="take another":
+                  new_hand=hand+draw_card(RANK_VALUES)
+                  
+              
+            
     
-player=initialise(RANK_VALUES)
-print(player)
-hand=parse_state(player)
-print(hand)
-print(generate_actions(hand))
