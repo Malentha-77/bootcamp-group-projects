@@ -89,11 +89,11 @@ def draw_card(litt):
     values=list(litt.keys())
     return random.choice(values))
 def initialise(cards): # we want this "Card1, Card2 | DealerUpcard | Flag"
-    return draw_card(cards),draw_cards,"|",draw_card(),"|","IN_PROGRESS"
+    return draw_card(cards),draw_card(cards),"|",draw_card(cards),"|","IN_PROGRESS"
     
 print("hi how are you welcome to our game hope you have a good time playing it")
 give=input("DO YOU WANT TO START YES OR NO")
-if give=="YES": #corrected minor typo
+if give=="YES" #corrected minor typo
     give=="NO"
     
 
