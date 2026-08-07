@@ -9,14 +9,14 @@ RANK_VALUES = {
 
 #deck class
 class Deck :
-    def _init_(self):
+    def __init__(self):
         self.cards = []
         for RANK_VALUE in RANK_VALUES :
          for design in designs :
-             self.cards.append((RANK_VALUES, designs))  #do this to insert identity to the cards e.g Queen of Hearts
+             self.cards.append((RANK_VALUE, designs))  #do this to insert identity to the cards e.g Queen of Hearts
 
         #shuffle cards for chance
-    random.shuffle(self.cards)
+        random.shuffle(self.cards)
         
 
 def hand_value(cards):
@@ -46,11 +46,11 @@ def parse_state(text):
 
 def generate_actions(state):#here you use the dictionary you got from parse_state as your input 
     playerhand=state.get("hand","no hand")
-    player_total=total(playerhand)
+    player_total=hand_value(playerhand)
     p_flag=state.get("flag","not flag")
     if player_total>21:
        state["flag"]="bust"
-    elif player_total==21 or player<21:
+    elif player_total <= 21:
          state["flag"]="IN_PROGRESS"
     if   playerhand["flag"]=="bust":
          return "loss"
