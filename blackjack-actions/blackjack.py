@@ -41,9 +41,6 @@ def parse_state(text):
     }
 
 
-
-
-
 def generate_actions(state):#here you use the dictionary you got from parse_state as your input 
     playerhand=state.get("hand","no hand")
     player_total=hand_value(playerhand)
@@ -52,9 +49,10 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
        state["flag"]="bust"
     elif player_total <= 21:
        state["flag"] = "IN_PROGRESS"
+
     if  state["flag"]=="bust":
          return "loss"  
-    elif state["flag"]=="IN_PROGRESS": 
+    elif state["flag"] == "IN_PROGRESS": 
          return "take another ?"
    
 #let's create our card deck
@@ -74,9 +72,8 @@ def player_hand(player_total, stat):
         return "take another ?"
 
 def apply_action(state, action, next_card=None):
-    def draw_card(litt):
-        values=list(litt.keys())
-        return random.choice(values)
+    pass
+
 def initialise(cards):# we want this "Card1, Card2 | DealerUpcard | Flag"
     print("These are your cards",draw_card(cards),draw_card(cards),"This is dealer card",draw_card(cards))
     return draw_card(cards),draw_card(cards),"|",draw_card(cards),"|","IN_PROGRESS"
@@ -84,11 +81,10 @@ def initialise(cards):# we want this "Card1, Card2 | DealerUpcard | Flag"
 print("hi how are you welcome to our game hope you have a good time playing it")
 give=input("DO YOU WANT TO START YES OR NO")
 give.upper()
-if give=="YES":
-    game=True
+if give == "YES":
     while game:
-        player1=initialise()
-        hand=parse_state(player)
-        show=generate_actions(state)
+        player1 = initialise(card_deck)
+        hand = parse_state(player1)
+        game = false
         
         
