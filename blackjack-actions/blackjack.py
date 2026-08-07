@@ -1,7 +1,7 @@
 import random 
 #create desk setup
 designs = ["Hearts", "Diamonds", "Clubs", "Spades"]
-values = (str(i) : for i in range(2, 11))
+values = {str(i) for i in range(2, 11)}
 
 RANK_VALUES = {
     "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10,
@@ -9,7 +9,7 @@ RANK_VALUES = {
 
 #deck class
 class Deck :
-    def _init_({self}):
+    def _init_(self):
         self.cards = []
         for RANK_VALUE in RANK_VALUES :
          for design in designs :
