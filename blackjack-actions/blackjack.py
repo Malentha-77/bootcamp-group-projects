@@ -51,9 +51,9 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     if player_total>21:
        state["flag"]="bust"
     elif player_total <= 21:
-         state["flag"]="IN_PROGRESS"
-    if   playerhand["flag"]=="bust":
-         return "loss"
+       state["flag"] = "IN_PROGRESS"
+    if  state["flag"]=="bust":
+         return "loss"  
     elif state["flag"]=="IN_PROGRESS": 
          return "take another ?"
    
@@ -62,25 +62,21 @@ card_deck = {'2':2,'K':10,'A':11,'3':3,'5':5}
 
     #shuffle cards for chance #like I done in the beginning
     # random.shuffle(self.cards)
-def player_hand():
-   stat = card_deck
-
-if player_total ==21 :    #I'm not to sure how to execute this properly
- print ("card_deck") 
-    
-elif player_total ==21 or player_total <= 21:
- return stat ("card_deck") 
-   
-if player_total[""]=="bust":
- return "loss"
-   
-elif stat["card_deck"]=="IN_PROGRESS": 
-return "take another ?"
+def player_hand(player_total, stat):  
+    if player_total ==21 :    #I'm not to sure how to execute this properly
+        print ("card_deck") 
+    elif player_total ==21 or player_total <= 21:
+        return stat ("card_deck")
+     
+    if player_total["flag"] == "bust":
+        return "loss"
+    elif stat["card_deck"]=="IN_PROGRESS": 
+        return "take another ?"
 
 def apply_action(state, action, next_card=None):
     def draw_card(litt):
         values=list(litt.keys())
-    return random.choice(values)
+        return random.choice(values)
 def initialise(cards):# we want this "Card1, Card2 | DealerUpcard | Flag"
     print("These are your cards",draw_card(cards),draw_card(cards),"This is dealer card",draw_card(cards))
     return draw_card(cards),draw_card(cards),"|",draw_card(cards),"|","IN_PROGRESS"
