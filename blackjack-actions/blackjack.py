@@ -58,8 +58,7 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
 #let's create our card deck
 card_deck = {'2':2,'K':10,'A':11,'3':3,'5':5}
 
-    #shuffle cards for chance #like I done in the beginning
-    # random.shuffle(self.cards)
+    #wrapped functions and we added parameters
 def player_hand(player_total, stat):  
     if player_total ==21 :    #I'm not to sure how to execute this properly
         print ("card_deck") 
@@ -76,15 +75,15 @@ def apply_action(state, action, next_card=None):
 
 def draw_card(litt): # we want this "Card1, Card2 | DealerUpcard | Flag"
     values=list(litt.keys())
-    return 
+    return random.choice(values)  
     
 print("hi how are you welcome to our game hope you have a good time playing it")
 give=input("DO YOU WANT TO START YES OR NO")
 give.upper()
 if give == "YES":
     while game:
-        player1 = initialise(card_deck)
+        player1 = (card_deck)
         hand = parse_state(player1)
-        game = false
+        game = False # this is added to prevent infinit loops
         
         
