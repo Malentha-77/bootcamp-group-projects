@@ -1,7 +1,7 @@
 import random 
 #create desk setup
 designs = ["Hearts", "Diamonds", "Clubs", "Spades"]
-values = [str(i) : for i in range(2, 11)]
+values = (str(i) : for i in range(2, 11))
 
 RANK_VALUES = {
     "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10,
@@ -66,10 +66,10 @@ def player_hand():
    stat = card_deck
 
 if player_total ==21 :    #I'm not to sure how to execute this properly
-    return stat["card_deck"] = "win"
+     print ("card_deck") 
     
 elif player_total ==21 or player_total <= 21:
-    return stat["card_deck"] = ""
+    return stat (card_deck"] 
    
 if player_total[""]=="bust":
     return "loss"
