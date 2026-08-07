@@ -59,7 +59,7 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
          return "loss"
     elif state["flag"]=="IN_PROGRESS": 
          return "take another ?"
-"""   
+""" 
 #let's create our card deck
 card_deck = {'2':2,'K':10,'A':11,'3':3,'5':5}
 
@@ -77,7 +77,7 @@ if player_total ==21 :    #I'm not to sure how to execute this properly
    if   player_total[""]=="bust":
         return "loss"
    
-   elif stat["card_deck"]=="IN_PROGRESS": 
+   elif stat["card_deck"]=="IN_PROGRESS":
         return "take another ?"
 """
 def apply_action(state, action, next_card=None):
@@ -88,7 +88,7 @@ def draw_card(litt):
 def initialise(cards):# we want this "Card1, Card2 | DealerUpcard | Flag"
     return draw_card(cards),draw_card(cards),"|",draw_card(cards),"|","IN_PROGRESS"
 
-    """"this is the game play""""
+    """this is the game play"""
     print("hi and welcom to our game ")
     game=input("do you want to play")
     play=True
