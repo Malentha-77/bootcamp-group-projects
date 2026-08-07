@@ -64,7 +64,25 @@ if   playerhand["flag"]=="bust":
 elif state["flag"]=="IN_PROGRESS": 
      return "take another ?"
    
+#let's create our card deck
+card_deck = {'2':2,'K':10,'A':11,'3':3,'5':5}
 
+    #shuffle cards for chance #like I done in the beginning
+    # random.shuffle(self.cards)
+def player_hand():
+   stat = card_deck
+
+if player_total ==21 :    #I'm not to sure how to execute this properly
+      return stat["card_deck"]="win"
+
+   elif player_total ==21 or player_total <= 21:
+      return stat["card_deck"]= ""
+   
+   if   player_total[""]=="bust":
+        return "loss"
+   
+   elif stat["card_deck"]=="IN_PROGRESS": 
+        return "take another ?"
 
 def apply_action(state, action, next_card=None):
 def draw_card(litt):
@@ -75,7 +93,8 @@ def initialise(cards): # we want this "Card1, Card2 | DealerUpcard | Flag"
     
 print("hi how are you welcome to our game hope you have a good time playing it")
 give=input("DO YOU WANT TO START YES OR NO")
-if give=="YESS":
+if give=="YES": #corrected minor typo
+    give=="NO"
     
 
 
