@@ -66,16 +66,16 @@ def player_hand():
    stat = card_deck
 
 if player_total ==21 :    #I'm not to sure how to execute this properly
-     print ("card_deck") 
+ print ("card_deck") 
     
 elif player_total ==21 or player_total <= 21:
-    return stat (card_deck"] 
+ return stat ("card_deck") 
    
 if player_total[""]=="bust":
-    return "loss"
+ return "loss"
    
 elif stat["card_deck"]=="IN_PROGRESS": 
-    return "take another ?"
+return "take another ?"
 
 def apply_action(state, action, next_card=None):
     def draw_card(litt):
@@ -96,8 +96,3 @@ if give=="YES":
         show=generate_actions(state)
         
         
-
-
-    
-
-
