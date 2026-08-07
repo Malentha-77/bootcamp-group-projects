@@ -74,8 +74,8 @@ def player_hand(player_total, stat):
 def apply_action(state, action, next_card=None):
     pass
 
-def initialise(cards):# we want this "Card1, Card2 | DealerUpcard | Flag"
-    print("These are your cards",draw_card(cards),draw_card(cards),"This is dealer card",draw_card(cards))
+def draw_card(litt): # we want this "Card1, Card2 | DealerUpcard | Flag"
+    values=list(litt.keys())
     return draw_card(cards),draw_card(cards),"|",draw_card(cards),"|","IN_PROGRESS"
     
 print("hi how are you welcome to our game hope you have a good time playing it")
