@@ -41,14 +41,7 @@ def parse_state(text):
     }
 
 
-parse_state{} :
-    Card1= int(input("hand"))
-    for card in cards() :
-        "hand" = input(tuple(hand))
-        "dealer" = input(dealer_upcard)
-        "flag" = input(flag)
 
-print(parse_state)
 
 
 def generate_actions(state):#here you use the dictionary you got from parse_state as your input 
@@ -93,8 +86,16 @@ def initialise(cards): # we want this "Card1, Card2 | DealerUpcard | Flag"
     
 print("hi how are you welcome to our game hope you have a good time playing it")
 give=input("DO YOU WANT TO START YES OR NO")
-if give=="YES" #corrected minor typo
-    give=="NO"
+give.upper()
+if give=="YES":
+    game=True
+    while game:
+        player1=initialise()
+        parse_state(player)
+        
+        
+
+
     
 
 
