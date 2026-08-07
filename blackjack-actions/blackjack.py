@@ -44,7 +44,7 @@ def parse_state(text):
 
 
 
-def generate_actions(state):#here you use the dictionary you got from parse_state as your input 
+def generate_actions(state,down_card):#here you use the dictionary you got from parse_state as your input 
     playerhand=state.get("hand","no hand")
     player_total=total(playerhand)
     p_flag=state.get("flag","not flag")
