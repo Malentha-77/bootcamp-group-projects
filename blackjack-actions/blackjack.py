@@ -81,7 +81,8 @@ def apply_action(state, action, next_card=None):
 def draw_card(litt):
     values=list(litt.keys())
     return random.choice(values))
-def initialise(cards): # we want this "Card1, Card2 | DealerUpcard | Flag"
+def initialise(cards):# we want this "Card1, Card2 | DealerUpcard | Flag"
+    print("These are your cards",draw_card(cards),draw_card(cards),"This is dealer card",draw_card(cards))
     return draw_card(cards),draw_card(cards),"|",draw_card(cards),"|","IN_PROGRESS"
     
 print("hi how are you welcome to our game hope you have a good time playing it")
@@ -91,7 +92,8 @@ if give=="YES":
     game=True
     while game:
         player1=initialise()
-        parse_state(player)
+        hand=parse_state(player)
+        show=generate_actions(state)
         
         
 
