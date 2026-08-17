@@ -55,21 +55,6 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     elif state["flag"] == "IN_PROGRESS": 
          return "take another ?"
    
-#let's create our card deck
-card_deck = {'2':2,'K':10,'A':11,'3':3,'5':5}
-
-    #wrapped functions and we added parameters
-def player_hand(player_total, stat):  
-    if player_total ==21 :    #I'm not to sure how to execute this properly
-        print ("card_deck") 
-    elif player_total ==21 or player_total <= 21:
-        return stat ("card_deck")
-     
-    if player_total["flag"] == "bust":
-        return "loss"
-    elif stat["card_deck"]=="IN_PROGRESS": 
-        return "take another ?"
-
 def apply_action(state, action, next_card=None):
     pass
 
