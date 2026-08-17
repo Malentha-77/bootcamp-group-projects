@@ -27,8 +27,7 @@ def hand_value(cards):
         aces -= 1
     return total
 """
-    Parses state text formatted as: "Card1, Card2 | DealerUpcard | Flag"
-    Returns a dictionary state representation.
+    function that parses a decision-point string into a convenient representation.
     """
 def parse_state(text):
     hand_str, dealer_upcard, flag = [part.strip() for part in text.split("|")] #strip and split functions clean data given that is seperated by "|"
@@ -37,7 +36,7 @@ def parse_state(text):
     return {
         "hand": tuple(hand),
         "dealer_upcard": dealer_upcard,
-        "flag": flag,  # e.g., 'IN_PROGRESS', 'STAND', 'BUST', 'BLACKJACK'
+        "flag": flag.lower()  # first or later
     }
 
 
@@ -45,17 +44,18 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     playerhand=state.get("hand","no hand")
     player_total=hand_value(playerhand)
     p_flag=state.get("flag","not flag")
+    p_flag=p_flag.lower()
     if player_total>21:
-       state["flag"]="bust"
-    elif player_total <= 21:
-       state["flag"] = "IN_PROGRESS"
-
-    if  state["flag"]=="bust":
-         return "loss"  
-    elif state["flag"] == "IN_PROGRESS": 
-         return "take another ?"
+       return []
+    actions = ["hit", "stand"] 
+    if p_flag=="first":
+       actions.append("double")
+       actions.append("surrender")
+     if len(hand) == 2 and hand[0] == hand[1]:
+            actions.append("split")    
+     return actions   
    
-def apply_action(state, action, next_card=None):
+def apply_action(actions):
     pass
 
 def draw_card(litt): # we want this "Card1, Card2 | DealerUpcard | Flag"
