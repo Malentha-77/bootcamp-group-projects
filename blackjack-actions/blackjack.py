@@ -65,6 +65,7 @@ def draw_card(litt): # we want this "Card1, Card2 | DealerUpcard | Flag"
 print("hi how are you welcome to our game hope you have a good time playing it")
 give=input("DO YOU WANT TO START YES OR NO")
 give.upper()
+game=True
 if give == "YES":
     while game:
         player1 = (card_deck)
