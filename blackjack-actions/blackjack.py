@@ -66,7 +66,10 @@ print("hi how are you welcome to our game hope you have a good time playing it")
 give=input("DO YOU WANT TO START YES OR NO")
 give.upper()
 game=True
-if give == "YES":
+if  give == "YES":
+    first=str(draw_card(RANK_VALUES))
+    second=str(draw_card(RANK_VALUES))
+    third=str(draw_card(RANK_VALUES))
     while game:
         player1 = (card_deck)
         hand = parse_state(player1)
