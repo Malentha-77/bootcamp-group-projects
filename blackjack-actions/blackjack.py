@@ -34,7 +34,7 @@ def parse_state(text):
     hand = [rank.strip() for rank in hand_str.split(",")] #clean data for hand_str return list seperated by ","                     
 
     return {
-        "hand": tuple(hand),
+        "hand": tuple(hand)#hand is tuple as a tuple is immutable
         "dealer_upcard": dealer_upcard,
         "flag": flag.lower()  # first or later
     }
