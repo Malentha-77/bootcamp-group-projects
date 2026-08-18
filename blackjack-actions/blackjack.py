@@ -56,8 +56,12 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
             actions.append("split")    
      return actions   
    
-def apply_action(actions):
-    pass
+def apply_action(action,state,downcard):
+    legal_actions=generate_actions(state)
+    if action not in legal_actions:
+        return "action is not legal"
+    if actio   
+        
 
 def draw_card(litt): # we want this "Card1, Card2 | DealerUpcard | Flag"
     values=list(litt.keys())
