@@ -49,7 +49,7 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     if player_total>21:
        return []
     actions = ["hit", "stand"] 
-    if p_flag=="first":
+    if p_flag=="first":#if it's your first round
        actions.append("double")
        actions.append("surrender")
      if len(playerhand) == 2 and playerhand[0] == playerhand[1]:
