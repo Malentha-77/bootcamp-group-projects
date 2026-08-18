@@ -42,6 +42,7 @@ def parse_state(text):
 
 def generate_actions(state):#here you use the dictionary you got from parse_state as your input 
     playerhand=state.get("hand","no hand")
+    playerhand=list(playerhand)
     player_total=hand_value(playerhand)
     p_flag=state.get("flag","not flag")
     p_flag=p_flag.lower()
@@ -51,7 +52,7 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     if p_flag=="first":
        actions.append("double")
        actions.append("surrender")
-     if len(hand) == 2 and hand[0] == hand[1]:
+     if len(playerhand) == 2 and playerhand[0] == playerhand[1]:
             actions.append("split")    
      return actions   
    
