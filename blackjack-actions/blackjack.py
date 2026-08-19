@@ -63,9 +63,13 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
    
 def apply_action(action,state,downcard):
     legal_actions=generate_actions(state)
+    action=action.lower()
+    hand=state("hand")
+    hand=list(hand)
     if action not in legal_actions:
-        return "action is not legal"
-    if actio   
+        return "NOT LEAGL ACTION"
+    if action=="hit":
+       
         
 
 def draw_card(dic_t): # we want this "Card1, Card2 | DealerUpcard | Flag"
