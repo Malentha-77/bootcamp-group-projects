@@ -21,16 +21,6 @@ class Deck :
         
 
 def hand_value(cards):
-    class Deck :
-    def __init__(self):
-        self.cards = []
-        for RANK_VALUE in RANK_VALUES :
-         for design in designs :
-             self.cards.append((RANK_VALUE, designs))  #do this to insert identity to the cards e.g Queen of Hearts and represent that whole 52 cards
-                                                       # this allows us to pop any chosen UNIQUE card so that we dont select it twice
-
-        #shuffle cards for chance
-        random.shuffle(self.cards)
     aces = cards.count("A")
     while total > 21 and aces > 0:
         total -= 10
@@ -44,7 +34,7 @@ def parse_state(text):
     hand = [rank.strip() for rank in hand_str.split(",")] #clean data for hand_str return list seperated by ","                     
 
     return {
-        "hand": tuple(hand)#hand is tuple as a tuple is immutable
+        "hand": tuple(hand),#hand is tuple as a tuple is immutable
         "dealer_upcard": dealer_upcard,
         "flag": flag.lower()  # first or later
     }
@@ -64,7 +54,7 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
        actions.append("surrender")
        if len(playerhand) == 2 and playerhand[0] == playerhand[1]:
             actions.append("split")    
-      return actions   
+      return actions   # generate a list of LEGAL actions the player can take
    
 def apply_action(action,state,downcard):
     legal_actions=generate_actions(state)
