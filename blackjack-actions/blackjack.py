@@ -50,10 +50,8 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     p_flag=p_flag.lower()
     if player_total>21:
        return []
-    actions = ["hit", "stand"] 
     if p_flag=="first":#if it's your first round
-       actions.append("double")
-       actions.append("surrender")
+       actions = ["hit", "stand","double","surrender"] 
        if len(playerhand) == 2 and playerhand[0] == playerhand[1]:
             actions.append("split")    
       return actions   # generate a list of LEGAL actions the player can take
@@ -65,9 +63,9 @@ def apply_action(action,state,downcard):
     if actio   
         
 
-def draw_card(litt): # we want this "Card1, Card2 | DealerUpcard | Flag"
-    values=list(litt.keys())
-    return random.choice(values)  
+def draw_card(dic_t): # we want this "Card1, Card2 | DealerUpcard | Flag"
+    value_s=list(dict_t.keys())
+    return random.choice(value_s)  
     
 print("hi how are you welcome to our game hope you have a good time playing it")
 give=input("DO YOU WANT TO START YES OR NO")
