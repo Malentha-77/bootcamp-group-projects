@@ -46,15 +46,20 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     playerhand=state.get("hand","no hand")
     playerhand=list(playerhand)
     player_total=hand_value(playerhand)
-    p_flag=state.get("flag","not flag")
+    p_flag=state.get("flag","no flag")
     p_flag=p_flag.lower()
+    dealer_Up=state.get("dealer_upcard")
     if player_total>21:
        return []
     if p_flag=="first":#if it's your first round
        actions = ["hit", "stand","double","surrender"] 
        if len(playerhand) == 2 and playerhand[0] == playerhand[1]:
-            actions.append("split")    
-      return actions   # generate a list of LEGAL actions the player can take
+            actions.append("split") 
+       if dealer_up=="A":
+          actions.append("insurance")
+   if p_flag=="later":
+      actions=["hit","stand"]
+   return actions   # generate a list of LEGAL actions the player can take
    
 def apply_action(action,state,downcard):
     legal_actions=generate_actions(state)
