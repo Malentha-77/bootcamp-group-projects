@@ -61,7 +61,7 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
       actions=["hit","stand"]
    return actions   # generate a list of LEGAL actions the player can take
    
-def apply_action(action,state,downcard):
+def apply_action(action,state):
     legal_actions=generate_actions(state)
     action=action.lower()
     hand=state("hand")
@@ -69,6 +69,10 @@ def apply_action(action,state,downcard):
     if action not in legal_actions:
         return "NOT LEAGL ACTION"
     if action=="hit":
+       hand.append(draw_card(RANK_VALUES))
+       state["hand"]=tuple(hand)
+       
+        
        
         
 
