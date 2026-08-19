@@ -18,14 +18,16 @@ class Deck :
 
         #shuffle cards for chance
         random.shuffle(self.cards)
-        
-
-def hand_value(cards):
+  def hand_value(cards):
+    total = sum(RANK_VALUES[card] for card in cards)
     aces = cards.count("A")
+
     while total > 21 and aces > 0:
         total -= 10
         aces -= 1
-    return total
+
+    return total      
+
 """
     function that parses a decision-point string into a convenient representation.
     """
