@@ -14,13 +14,23 @@ class Deck :
         for RANK_VALUE in RANK_VALUES :
          for design in designs :
              self.cards.append((RANK_VALUE, designs))  #do this to insert identity to the cards e.g Queen of Hearts
+                                                       #this new class can allow us to pop any chosen ÜNIQUE card to prevent from being chosen aggain 
 
         #shuffle cards for chance
         random.shuffle(self.cards)
         
 
 def hand_value(cards):
-    total = sum(RANK_VALUES[card] for card in cards)
+    class Deck :
+    def __init__(self):
+        self.cards = []
+        for RANK_VALUE in RANK_VALUES :
+         for design in designs :
+             self.cards.append((RANK_VALUE, designs))  #do this to insert identity to the cards e.g Queen of Hearts and represent that whole 52 cards
+                                                       # this allows us to pop any chosen UNIQUE card so that we dont select it twice
+
+        #shuffle cards for chance
+        random.shuffle(self.cards)
     aces = cards.count("A")
     while total > 21 and aces > 0:
         total -= 10
