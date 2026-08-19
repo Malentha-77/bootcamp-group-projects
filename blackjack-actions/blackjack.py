@@ -52,9 +52,9 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     if p_flag=="first":#if it's your first round
        actions.append("double")
        actions.append("surrender")
-     if len(playerhand) == 2 and playerhand[0] == playerhand[1]:
+       if len(playerhand) == 2 and playerhand[0] == playerhand[1]:
             actions.append("split")    
-     return actions   
+      return actions   
    
 def apply_action(action,state,downcard):
     legal_actions=generate_actions(state)
