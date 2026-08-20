@@ -71,11 +71,14 @@ def apply_action(action,state):
     if action=="hit":
        hand.append(draw_card(RANK_VALUES))
        state["hand"]=tuple(hand)
+       state["flag"]="later"
+    if action=="stand":
+       return "done"
+       state["flag"]="later"
+    if action=="double":
+       state["hand"].append(draw_card(RANK_VALUES))
        
         
-       
-        
-
 def draw_card(dic_t): # we want this "Card1, Card2 | DealerUpcard | Flag"
     value_s=list(dict_t.keys())
     return random.choice(value_s)  
