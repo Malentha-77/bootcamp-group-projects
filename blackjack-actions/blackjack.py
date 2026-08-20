@@ -18,7 +18,7 @@ class Deck :
 
         #shuffle cards for chance
         random.shuffle(self.cards)
-  def hand_value(cards):
+def hand_value(cards):
     total = sum(RANK_VALUES[card] for card in cards)
     aces = cards.count("A")
 
@@ -52,13 +52,16 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     if player_total>21:
        return []
     if p_flag=="first":#if it's your first round
+       print("first")
        actions = ["hit", "stand","double","surrender"] 
        if len(playerhand) == 2 and playerhand[0] == playerhand[1]:
+            #print("split should")
             actions.append("split") 
        if dealer_up=="A":
           actions.append("insurance")
     if p_flag=="later":
-      actions=["hit","stand"]
+       print("here")
+       actions=["hit","stand"]
     return actions   # generate a list of LEGAL actions the player can take
    
 def apply_action(action,state):
@@ -79,33 +82,23 @@ def apply_action(action,state):
        hand.append(draw_card(RANK_VALUES))
        state["hand"]=tuple(hand)
        state["flag"]="later"
-   if  action=="split":
-       state["hands"] = [
-            (hand[0],),
-            (hand[1],)
-        ]
+    if  action=="split":
+       print("split")
+       new=[(hand[0],)]
+       new.append((hand[1],))
+       state["hand"]=new
        state["flag"]="later"
     
-   if action=="surrender":
+    if action=="surrender":
       state["flag"]="later"       
-   return state["hand"]    
+    return state["hand"]    
       
                
 def draw_card(dic_t): # we want this "Card1, Card2 | DealerUpcard | Flag"
     value_s=list(dic_t.keys())
     return random.choice(value_s)  
-    
-print("hi how are you welcome to our game hope you have a good time playing it")
-give=input("DO YOU WANT TO START YES OR NO")
-give.upper()
-game=True
-if  give == "YES":
-    first=str(draw_card(RANK_VALUES))
-    second=str(draw_card(RANK_VALUES))
-    third=str(draw_card(RANK_VALUES))
-    while game:
-        player1 = (card_deck)
-        hand = parse_state(player1)
-        game = False # this is added to prevent infinit loops
-        
-        
+state="8,8 | 5 | first"
+p_state=parse_state(state)
+ret=apply_action("split",p_state)
+#print(generate_actions(p_state))
+print(ret)
