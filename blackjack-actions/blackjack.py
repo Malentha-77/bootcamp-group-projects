@@ -86,6 +86,9 @@ def apply_action(action,state):
             (hand[1],)
         ]
        state["flag"]="later"
+    
+   if action=="surrender":
+      return "surrender"
        
        
       
