@@ -64,6 +64,7 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
 def apply_action(action,state):
     legal_actions=generate_actions(state)
     action=action.lower()
+    action=action.strip()
     hand=state("hand")
     hand=list(hand)
     if action not in legal_actions:
@@ -76,9 +77,19 @@ def apply_action(action,state):
        return "done"
        state["flag"]="later"
     if action=="double":
-       state["hand"].append(draw_card(RANK_VALUES))
+       hand.append(draw_card(RANK_VALUES))
+       state["hand"]=tuple(hand)
+       state["flag"]="later"
+   if  action=="split":
+       state["hands"] = [
+            (hand[0],),
+            (hand[1],)
+        ]
+       state["flag"]="later"
        
-        
+       
+      
+               
 def draw_card(dic_t): # we want this "Card1, Card2 | DealerUpcard | Flag"
     value_s=list(dict_t.keys())
     return random.choice(value_s)  
