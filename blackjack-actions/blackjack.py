@@ -48,7 +48,7 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     player_total=hand_value(playerhand)
     p_flag=state.get("flag","no flag")
     p_flag=p_flag.lower()
-    dealer_Up=state.get("dealer_upcard")
+    dealer_up=state.get("dealer_upcard")
     if player_total>21:
        return []
     if p_flag=="first":#if it's your first round
@@ -92,7 +92,7 @@ def apply_action(action,state):
       
                
 def draw_card(dic_t): # we want this "Card1, Card2 | DealerUpcard | Flag"
-    value_s=list(dict_t.keys())
+    value_s=list(dic_t.keys())
     return random.choice(value_s)  
     
 print("hi how are you welcome to our game hope you have a good time playing it")
