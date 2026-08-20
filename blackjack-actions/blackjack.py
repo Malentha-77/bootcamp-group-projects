@@ -88,8 +88,7 @@ def apply_action(action,state):
        state["flag"]="later"
     
    if action=="surrender":
-      return "surrender"
-       
+      state["flag"]="later"       
        
       
                
