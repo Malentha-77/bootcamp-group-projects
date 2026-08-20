@@ -19,8 +19,9 @@ class Deck :
         #shuffle cards for chance
         random.shuffle(self.cards)
 def hand_value(cards):
-    total = sum(RANK_VALUES[card] for card in cards)
-    aces = cards.count("A")
+    normalized_cards = [card.upper() for card in cards]
+    total = sum(RANK_VALUES[card] for card in normalized_cards)
+    aces = normalized_cards.count("A")
 
     while total > 21 and aces > 0:
         total -= 10
@@ -50,7 +51,7 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     p_flag=p_flag.lower()
     dealer_up=state.get("dealer_upcard")
     if player_total>21:
-       return []
+       return ["bust"]
     if p_flag=="first":#if it's your first round
        print("first")
        actions = ["hit", "stand","double","surrender"] 
@@ -83,11 +84,11 @@ def apply_action(action,state):
        state["hand"]=tuple(hand)
        state["flag"]="later"
     if  action=="split":
-       print("split")
-       new=[(hand[0],)]
-       new.append((hand[1],))
-       state["hand"]=new
-       state["flag"]="later"
+         state["hand"] = [
+            (hand[0], ),
+            (hand[1],),
+         ]
+         state["flag"]="later"
     
     if action=="surrender":
       state["flag"]="later"       
@@ -97,8 +98,8 @@ def apply_action(action,state):
 def draw_card(dic_t): # we want this "Card1, Card2 | DealerUpcard | Flag"
     value_s=list(dic_t.keys())
     return random.choice(value_s)  
-state="8,8 | 5 | first"
+state="10,9,k | A | first"
 p_state=parse_state(state)
-ret=apply_action("split",p_state)
-#print(generate_actions(p_state))
-print(ret)
+#ret=apply_action("hit",p_state)
+print(generate_actions(p_state))
+#print(ret)
