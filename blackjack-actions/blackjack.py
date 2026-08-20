@@ -74,7 +74,6 @@ def apply_action(action,state):
        state["hand"]=tuple(hand)
        state["flag"]="later"
     if action=="stand":
-       return "done"
        state["flag"]="later"
     if action=="double":
        hand.append(draw_card(RANK_VALUES))
@@ -89,7 +88,7 @@ def apply_action(action,state):
     
    if action=="surrender":
       state["flag"]="later"       
-       
+   return state["hand"]    
       
                
 def draw_card(dic_t): # we want this "Card1, Card2 | DealerUpcard | Flag"
