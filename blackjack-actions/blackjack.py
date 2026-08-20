@@ -51,7 +51,7 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
     p_flag=p_flag.lower()
     dealer_up=state.get("dealer_upcard")
     if player_total>21:
-       return ["bust"]
+       return ["busted"]
     if p_flag=="first":#if it's your first round
        print("first")
        actions = ["hit", "stand","double","surrender"] 
@@ -65,34 +65,28 @@ def generate_actions(state):#here you use the dictionary you got from parse_stat
        actions=["hit","stand"]
     return actions   # generate a list of LEGAL actions the player can take
    
-def apply_action(action,state):
-    legal_actions=generate_actions(state)
-    action=action.lower()
-    action=action.strip()
-    hand=state["hand"]
-    hand=list(hand)
+def apply_action(state, action, next_card=None):
+    action = action.lower().strip()
+    legal_actions = generate_actions(state)
     if action not in legal_actions:
         return "NOT LEAGL ACTION"
-    if action=="hit":
-       hand.append(draw_card(RANK_VALUES))
-       state["hand"]=tuple(hand)
-       state["flag"]="later"
-    if action=="stand":
-       state["flag"]="later"
-    if action=="double":
-       hand.append(draw_card(RANK_VALUES))
-       state["hand"]=tuple(hand)
-       state["flag"]="later"
-    if  action=="split":
-         state["hand"] = [
-            (hand[0], ),
-            (hand[1],),
-         ]
-         state["flag"]="later"
-    
-    if action=="surrender":
-      state["flag"]="later"       
-    return state["hand"]    
+
+    state = state.copy()
+    hand = list(state["hand"])
+    if action in ("hit", "double"):
+        hand.append(next_card or draw_card(RANK_VALUES))
+        state["hand"] = tuple(hand)
+        state["flag"] = "later"
+        state["total"] = hand_value(hand)
+        state["busted"] = state["total"] > 21
+    elif action == "stand":
+        state["flag"] = "later"
+    elif action == "split":
+        return [{"hand": [hand[0]]}, {"hand": [hand[1]]}]
+    elif action == "surrender":
+        state["flag"] = "later"
+
+    return state
       
                
 def draw_card(dic_t): # we want this "Card1, Card2 | DealerUpcard | Flag"
@@ -103,3 +97,4 @@ p_state=parse_state(state)
 #ret=apply_action("hit",p_state)
 print(generate_actions(p_state))
 #print(ret)
+
