@@ -65,7 +65,7 @@ def apply_action(action,state):
     legal_actions=generate_actions(state)
     action=action.lower()
     action=action.strip()
-    hand=state("hand")
+    hand=state["hand"]
     hand=list(hand)
     if action not in legal_actions:
         return "NOT LEAGL ACTION"
